@@ -2,37 +2,79 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chat-box {
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  max-height: 70vh;
+  padding: 10px 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-interaction {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.send-btn {
+  background-color: #0084FF; /* Blue background color for the button */
+  color: #fff; /* White text color for the button */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Increased padding for the button */
+  cursor: pointer;
+  margin: 0 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.query-box {
+  width: 80%;
+  padding: 10px;
+  margin: 0px 5px; /* Increased margin top and bottom */
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Light gray border color */
+}
+
+.chat-message {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 10px 0 10px;
+  display: flex;
+  justify-content: left;
+  position: relative;
+  background-color: #f0f0f0; /* Background color for user messages */
+}
+
+.chat-message.bot {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #4CAF50; /* Background color for bot messages */
+  color: white; /* Text color for bot messages */
+  margin-top: 0; /* Decrease top margin for bot messages */
+}
+
+.chat-message::before {
+  content: '';
+  border-top: 0.5px solid sandybrown; /* Border on the top part of the message */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chat-message::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.chat-message.bot::before,
+.chat-message.bot::after {
+  border: none; /* Remove border for bot messages */
 }
